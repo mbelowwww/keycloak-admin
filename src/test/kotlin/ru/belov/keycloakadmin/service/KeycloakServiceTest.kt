@@ -3,6 +3,7 @@ package ru.belov.keycloakadmin.service
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import java.time.temporal.ChronoUnit
 import java.util.UUID
 
 @SpringBootTest
@@ -13,8 +14,9 @@ class KeycloakServiceTest {
 
 	@Test
 	fun createUser() {
-		val userName = UUID.randomUUID().toString()
-		keycloakService.createUser(userName, "123")
+		keycloakService.createUser(UUID.randomUUID().toString(), "123")
+		Thread.sleep(70_000)
+		keycloakService.createUser(UUID.randomUUID().toString(), "123")
 	}
 
 }
